@@ -48,6 +48,7 @@ var Select2Component = Ember.Component.extend({
   searchEnabled: true,
   minimumInputLength: null,
   maximumInputLength: null,
+  maximumSelectionSize: null,
 
   // internal state
   _hasSelectedMissingItems: false,
@@ -78,6 +79,7 @@ var Select2Component = Ember.Component.extend({
 
     options.minimumInputLength = this.get('minimumInputLength');
     options.maximumInputLength = this.get('maximumInputLength');
+    options.maximumSelectionSize = this.get('maximumSelectionSize');
 
     // override select2's default id fetching behavior
     options.id = (function(e) {
