@@ -49,6 +49,8 @@ var Select2Component = Ember.Component.extend({
   minimumInputLength: null,
   maximumInputLength: null,
   maximumSelectionSize: null,
+  width: null,
+  dropdownAutoWidth: false,
 
   // internal state
   _hasSelectedMissingItems: false,
@@ -72,6 +74,12 @@ var Select2Component = Ember.Component.extend({
     Ember.assert("select2 has to exist on Ember.$.fn.select2", typeof Ember.$.fn.select2 === "function");
 
     // setup
+
+    if(!Ember.isEmpty(this.get('width')))
+    {
+      options.width = this.get('width');
+    }
+    options.dropdownAutoWidth = this.get('dropdownAutoWidth');
     options.placeholder = this.get('placeholder');
     options.multiple = this.get('multiple');
     options.allowClear = this.get('allowClear');
