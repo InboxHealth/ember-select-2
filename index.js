@@ -4,7 +4,7 @@ module.exports = {
   included: function (app) {
     this._super.included(app);
 
-    app.import("select2/select2.js");
+    app.import("node_modules/select2/select2.js");
 
     // include assets if there are no options or includeAssets IS NOT false
     var includeAssets =
@@ -12,10 +12,13 @@ module.exports = {
       app.options.select2.includeAssets !== false;
 
     if (includeAssets) {
-      app.import("select2/select2.css");
-      app.import("select2/select2.png", { destDir: "assets" });
-      app.import("select2/select2x2.png", { destDir: "assets" });
-      app.import("select2/select2-spinner.gif", { destDir: "assets" });
+      app.import("node_modules/select2/select2.css");
+      app.import("node_modules/select2/select2-bootstrap.css");
+      app.import("node_modules/select2/select2.png", { destDir: "assets" });
+      app.import("node_modules/select2/select2x2.png", { destDir: "assets" });
+      app.import("node_modules/select2/select2-spinner.gif", {
+        destDir: "assets",
+      });
     }
   },
 };
